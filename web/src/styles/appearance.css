@@ -1,0 +1,110 @@
+.theme-setting{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:13px 9px 16px;padding-top:13px;border-top:1px solid #3f4353;color:#c4c8d5;font-size:var(--text-sm)}
+.theme-setting select{min-height:38px;padding:4px 8px;border:1px solid #788196;border-radius:7px;background:#303544;color:#f1efff;color-scheme:dark}
+.theme-setting select:focus-visible,.sidebar button:focus-visible{outline-color:#b6c9fb}
+
+@media(max-height:690px){
+  .sidebar{padding-top:14px;padding-bottom:8px}
+  .sidebar .nav-label{margin-block:5px;font-size:var(--text-xs)}
+  .sidebar .nav-btn{margin-bottom:2px;padding-block:7px}
+  .sidebar-divider{margin-block:6px}
+  .theme-setting{margin-block:5px 9px;padding-top:6px}
+  .side-clock{margin-bottom:0;padding-block:7px 0;gap:0}
+  .clock-time{font-size:1.75rem}
+}
+@media(max-height:465px){
+  .sidebar .brand{font-size:1.25rem;line-height:1.35}
+  .brand>div{display:flex;align-items:baseline;gap:8px}
+  .brand small{margin-top:0;font-size:var(--text-xs)}
+  .side-clock{display:none}
+}
+
+body[data-theme="whale"]{
+  --canvas:#eff6fd;
+  --paper:#fff;
+  --ink:#20345c;
+  --muted:#475f81;
+  --text-secondary:#475f81;
+  --line:#d5e3f1;
+  --accent:#2456a0;
+  --accent-hover:#19457f;
+  --accent-soft:#e3effb;
+  --focus:#2d5ea9;
+  --sidebar:#152748;
+  --sea-border:#859dbb;
+  --sea-surface:#f7fbff;
+  --sea-panel:#e8f1fa;
+  --sea-progress:#5580bb;
+  color:var(--ink);
+  --whale-art:
+  /* @include assets/whale.webp */
+  ;
+}
+[data-theme="whale"] ::selection{background:#c9e1fc}
+[data-theme="whale"] .sidebar{background:linear-gradient(160deg,#213761,var(--sidebar) 63%);color:#dae6fa}
+[data-theme="whale"] .brand{color:#fafdff}
+[data-theme="whale"] .brand-mark{background:var(--whale-art) 14.8% 21% / 655% auto no-repeat #b9d9fb}
+[data-theme="whale"] .brand-mark svg{visibility:hidden}
+[data-theme="whale"] :is(.brand small,.nav-label,.nav-btn,.clock-date,.theme-setting){color:#c6dbf4}
+[data-theme="whale"] .nav-btn:hover{background:#293f66;color:#f5faff}
+[data-theme="whale"] .nav-btn.active{background:#2f4d7b;color:#f4faff}
+[data-theme="whale"] .nav-btn.active svg{color:#b9dafb}
+[data-theme="whale"] .nav-count{background:#1b345b;color:#d4e7fb}
+[data-theme="whale"] .sidebar-divider{background:#40577c}
+[data-theme="whale"] :is(.side-clock,.theme-setting){border-color:#40577c}
+[data-theme="whale"] .theme-setting select{background:#243f68;border-color:#89a7cf;color:#f5faff}
+[data-theme="whale"] .clock-time{color:#f5f9ff}
+[data-theme="whale"] .clock-seconds{color:#f0d2a0}
+
+[data-theme="whale"] .main{
+  position:relative;
+  isolation:isolate;
+  background:radial-gradient(ellipse at 96% 100%,#d7eafb,transparent 62%),var(--canvas);
+}
+[data-theme="whale"] .main::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  pointer-events:none;
+  right:clamp(0px,2vw,2.5rem);
+  bottom:2.5rem;
+  width:clamp(15rem,31vw,34rem);
+  aspect-ratio:414 / 501;
+  /* Show the large portrait in the left panel of the reference sheet. */
+  background:var(--whale-art) left 12.7% / 245.2% auto no-repeat;
+  opacity:.24;
+  mask-image:linear-gradient(to right,transparent,#000 13%,#000 84%,transparent),linear-gradient(to bottom,transparent,#000 16%,#000 86%,transparent);
+  mask-composite:intersect;
+}
+[data-theme="whale"] :is(.topbar,.bottom-bar){background:var(--sea-surface);border-color:var(--line)}
+[data-theme="whale"] :is(.board-title,.page-title,.card-title,.modal-title,.time-card h2,.no-lists strong,.backup-card h3){color:var(--ink)}
+[data-theme="whale"] .board-title:hover{background:var(--accent-soft)}
+[data-theme="whale"] .page-tab{color:var(--text-secondary)}
+[data-theme="whale"] .page-tab.active{color:var(--accent)}
+[data-theme="whale"] :is(.tab-count,.list-count){background:#dce9f7;color:#36547b}
+[data-theme="whale"] .page-tab.active .tab-count{background:#d0e5fb;color:#244e8a}
+[data-theme="whale"] :is(.list,.list-composer){background:#e6eff8ed;border-color:#ccddee}
+[data-theme="whale"] :is(.card,.time-card,.modal-side,.modal-footer,.todo-row,.time-alarm,.time-alert){border-color:var(--line)}
+[data-theme="whale"] .card:hover{border-color:#90a9cc}
+[data-theme="whale"] :is(.add-list,.no-lists,.list-empty){border-color:var(--sea-border);color:var(--text-secondary)}
+[data-theme="whale"] .add-list{background:#f4f9ffb8}
+[data-theme="whale"] :is(.add-list:hover,.add-card:hover,.icon-btn:not(.danger):hover,.list-menu button:not(.danger):hover,.btn-secondary:hover){background:var(--accent-soft);color:var(--accent)}
+[data-theme="whale"] :is(.btn-secondary,.time-small){border-color:#a4b9d2;color:#284d7e}
+[data-theme="whale"] .btn-primary{box-shadow:0 3px 8px #2456a019}
+[data-theme="whale"] .btn-primary:hover{background:var(--accent-hover)}
+[data-theme="whale"] .notes-viewport{border-color:#b5cbe4;background:#e8f2fb88 radial-gradient(#aebfd3 1px,transparent 1px);background-size:18px 18px}
+[data-theme="whale"] .time-pom-card{background:linear-gradient(150deg,#fff,var(--sea-surface))}
+[data-theme="whale"] .time-sound{padding:12px 15px;border:1px solid var(--line);border-radius:12px;background:#f7fbffed}
+[data-theme="whale"] :is(.time-tool-icon,.time-small,.modal-top,.todo-add button,.card-initial){background:var(--accent-soft);color:#294f86}
+[data-theme="whale"] .time-check input{accent-color:var(--accent)}
+[data-theme="whale"] :is(.time-display,.time-alarm strong,.time-alert strong,.time-laps strong,.modal-top-label,.bottom-bar i){color:#36547b}
+[data-theme="whale"] :is(.search,.description,.side-input,.todo-add input,.backup-card,.time-form input:not([type=checkbox]):not(:disabled)){background:var(--sea-surface);color:var(--ink)}
+[data-theme="whale"] :is(.search,.description,.side-input,.field-input,.todo-add input,.composer textarea,.composer input,.label-editor input,.note-editor-text,.time-form input:not([type=checkbox]),.note-editor-options select,.todo-check){border-color:var(--sea-border)}
+[data-theme="whale"] .modal-top::before,[data-theme="whale"] .modal-top::after,[data-theme="whale"] .cover-option.selected{border-color:#a3bde0}
+[data-theme="whale"] :is(.mini-progress,.progress-track){background:var(--sea-panel)}
+[data-theme="whale"] :is(.mini-progress i,.progress-fill){background:var(--sea-progress)}
+[data-theme="whale"] .todo-check:checked{background:var(--accent);border-color:var(--accent)}
+[data-theme="whale"] .no-lists svg{color:var(--accent)}
+
+@media(max-width:760px),(max-height:600px){
+  [data-theme="whale"] .main::before{width:min(52vw,16rem,52dvh);bottom:2rem;opacity:.19}
+}

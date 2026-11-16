@@ -1,0 +1,18 @@
+<aside id="sidebar" class="sidebar" aria-label="主選單">
+  <div class="brand"><span class="brand-mark"><svg><use href="#i-board"/></svg></span><div>拾序<small>STUDIO</small></div></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav aria-label="工作區"><button class="nav-btn active" id="openBoard" aria-controls="kanbanPage" aria-current="page"><svg><use href="#i-grid"/></svg>我的看板<span id="allCount" class="nav-count">0</span></button>
+  <button class="nav-btn" id="openNotes" aria-controls="notesPanel" aria-expanded="false"><svg><use href="#i-note"/></svg>隨手便簽<span id="notesCount" class="nav-count">0</span></button></nav>
+  <div class="sidebar-divider"></div><div class="nav-label">YOUR TOOLS</div>
+  <button class="nav-btn" id="openTime" aria-controls="timePage"><svg><use href="#i-clock"/></svg>時間工具箱<span id="timeCount" class="nav-count">0</span></button>
+  <button class="nav-btn" id="editLabels"><svg><use href="#i-tag"/></svg>管理標籤</button>
+  <button class="nav-btn" id="openBackup"><svg><use href="#i-download"/></svg>資料與備份</button>
+  <div class="theme-setting">
+    <label for="themeChoice">外觀主題</label>
+    <select id="themeChoice">
+      <option value="classic">經典</option>
+      <option value="whale">大肥魚</option>
+    </select>
+  </div>
+  <div class="side-clock" aria-label="目前時間"><time id="clockTime" class="clock-time"><span id="clockHM">--:--</span><span id="clockSeconds" class="clock-seconds">:--</span></time><span id="clockDate" class="clock-date"></span></div>
+</aside>

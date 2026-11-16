@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="拾序 Studio — 離線也流暢的個人工作看板。所有資料保存在這台裝置。">
+<title>拾序 Studio · 我的看板</title>
+<style>
+/* @include styles/base.css */
+/* @include styles/notes.css */
+/* @include styles/time.css */
+/* @include styles/readability.css */
+/* @include styles/header.css */
+/* @include styles/appearance.css */
+</style>
+</head>
+<body>
+<!-- @include partials/icons.html -->
+<div class="app">
+<div id="mobileScrim" class="mobile-scrim"></div>
+<!-- @include partials/sidebar.html -->
+<main class="main">
+<!-- @include partials/topbar.html -->
+<!-- @include partials/kanban.html -->
+<!-- @include partials/notes.html -->
+<!-- @include partials/time.html -->
+<!-- @include partials/footer.html -->
+</main></div>
+<!-- @include partials/dialogs.html -->
+<script>
+/* 拾序 Studio — all code, styles and icons are local. No external requests. */
+(() => {
+'use strict';
+/* @include scripts/core.js */
+/* @include scripts/tabs.js */
+/* @include scripts/notes.js */
+/* @include scripts/time.js */
+/* @include scripts/board.js */
+/* @include scripts/ui.js */
+/* @include scripts/card-editor.js */
+/* @include scripts/todo-order.js */
+/* @include scripts/data.js */
+/* @include scripts/shortcuts.js */
+/* @include scripts/drag.js */
+/* @include scripts/clock.js */
+/* @include scripts/appearance.js */
+/* @include scripts/boot.js */
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "name": "shixu-studio",
+  "version": "1.3.0",
+  "description": "拾序 Studio — 離線個人工作看板桌面版",
+  "private": true,
+  "author": "Shixu Studio",
+  "license": "UNLICENSED",
+  "main": "main.cjs",
+  "scripts": {
+    "prepare:app": "node scripts/prepare.cjs",
+    "start": "npm run prepare:app && electron .",
+    "test": "node scripts/prepare.cjs && node --test test/*.test.cjs && node ../web/verify.cjs && node ../web/verify.cjs --desktop",
+    "test:notes-ui": "node scripts/test-notes-ui.cjs",
+    "test:time-ui": "node scripts/test-notes-ui.cjs --time",
+    "test:accessibility-ui": "node scripts/test-notes-ui.cjs --accessibility",
+    "release": "node scripts/release.cjs",
+    "release:portable": "node scripts/release-portable.cjs",
+    "build:dir": "node scripts/build.cjs"
+  },
+  "devDependencies": {
+    "electron": "45.2.2",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "studio.shixu.board",
+    "productName": "Shixu Studio",
+    "copyright": "Copyright © 2026 Shixu Studio",
+    "asar": true,
+    "npmRebuild": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "storage.cjs",
+      "distribution.cjs",
+      "app/**/*",
+      "assets/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": true
+    },
+    "publish": null
+  }
+}

@@ -1,0 +1,68 @@
+/* Compact page header shared by the board, notes and time pages.
+   Row 1: title · tabs · actions. Row 2 (optional): a slim info/filter line.
+   Keep the header short so the board, notes and tools get the height. */
+.topbar{display:grid;grid-template-columns:minmax(0,1fr) min(43%,28rem) minmax(0,1fr);align-items:center;gap:10px 14px;flex-shrink:0;min-height:56px;padding:8px 36px;border-bottom:1px solid var(--line);background:#fff}
+.topbar .breadcrumb{grid-column:1;grid-row:1;min-width:0}
+.topbar .breadcrumb strong,.top-date{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.topbar .search{grid-column:2;grid-row:1}
+.top-actions{grid-column:3;grid-row:1;display:flex;align-items:center;justify-content:flex-end;min-width:0;gap:8px}
+.top-actions .icon-btn{min-width:36px;min-height:36px}
+.board-header{flex-shrink:0;padding:6px 36px 0;border-bottom:1px solid var(--line)}
+.heading-row{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;min-height:58px}
+.board-title{flex:0 1 22rem;min-width:8rem;font-size:1.625rem;font-weight:700;line-height:1.35;letter-spacing:.5px;color:#2f3341;border:0;border-radius:8px;background:transparent;padding:5px 8px;margin-left:-8px;text-overflow:ellipsis}
+.board-title:hover{background:#eef0f5}
+.board-title:focus{background:#fff}
+.page-title{font-size:1.625rem;font-weight:700;line-height:1.35;letter-spacing:.5px;color:#2f3341;white-space:nowrap}
+.heading-tools{display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap}
+.heading-tools .btn{padding-block:8px}
+
+/* Tabs: board views and time tools. */
+.page-tabs{display:flex;align-self:stretch;gap:2px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.page-tabs::-webkit-scrollbar{display:none}
+.page-tab{display:flex;align-items:center;gap:7px;min-height:44px;padding:0 12px;border-bottom:2px solid transparent;color:#555b6b;font-size:var(--text-sm);font-weight:500;line-height:1.5;white-space:nowrap;transition:color .15s,border-color .15s}
+.page-tab svg{width:16px;height:16px}
+.page-tab:hover{color:var(--ink)}
+.page-tab.active{color:#5b4bc4;border-bottom-color:var(--accent)}
+.page-tab:focus-visible{outline-offset:-3px;border-radius:8px 8px 0 0}
+.tab-count{min-width:1.6em;padding:0 6px;border-radius:10px;background:#eceef3;color:#4b5161;font-size:var(--text-xs);line-height:1.6;text-align:center}
+.page-tab.active .tab-count{background:#e9e5fb;color:#46389e}
+.tab-live{display:none;width:7px;height:7px;border-radius:50%;background:#2f8a55}
+.page-tab.live .tab-live{display:block}
+
+/* Info row: counts on the left, label filters on the right. */
+.board-info{display:flex;align-items:center;justify-content:space-between;gap:4px 14px;flex-wrap:wrap;min-height:38px;padding:3px 0 5px;font-size:var(--text-sm);line-height:1.5;letter-spacing:.2px}
+.toolbar-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:var(--text-sm)}
+
+/* Content starts right under the header. */
+.board{padding-top:16px}
+.notes-viewport{margin-top:16px}
+
+@media(max-width:1150px){
+  .topbar,.board-header{padding-inline:25px}
+  .heading-tools .pill,.drag-hint{display:none}
+  .time-local{display:none}
+}
+@media(max-width:980px){
+  .topbar .breadcrumb>svg,.topbar .breadcrumb>span,.topbar .search kbd{display:none}
+}
+@media(max-width:760px){
+  .topbar{padding:8px 16px}
+  .board-header{padding-inline:16px}
+  .heading-row{gap:4px 10px}
+  .board-title{flex:1 1 10rem;font-size:1.375rem}
+  .page-title{font-size:1.375rem}
+  .heading-tools{gap:8px}
+  .heading-tools .btn{font-size:var(--text-sm);padding:8px 12px}
+  .heading-tools .btn svg{width:16px}
+  .page-tabs{order:3;flex-basis:100%;margin-inline:-8px}
+  .page-tab{padding:0 10px}
+  .filter-label{display:none}
+  .board-info{font-size:var(--text-xs);min-height:34px}
+  .board{padding-top:12px}
+  .notes-viewport{margin-top:12px}
+}
+@media(max-width:560px){
+  .topbar{grid-template-columns:minmax(0,1fr) auto}
+  .topbar .search{grid-column:1/-1;grid-row:2}
+  .top-actions{grid-column:2}
+}

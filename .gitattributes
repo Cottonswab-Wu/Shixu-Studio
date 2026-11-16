@@ -1,0 +1,2 @@
+# web/build.cjs 以 CRLF 產生此檔，驗證時會比對完整內容。
+/web/index.html -text

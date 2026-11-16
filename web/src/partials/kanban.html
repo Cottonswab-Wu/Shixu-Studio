@@ -1,0 +1,15 @@
+  <div id="kanbanPage" class="workspace-page">
+  <section class="board-header" aria-label="看板工具">
+    <div class="heading-row">
+      <input id="boardTitle" class="board-title" maxlength="100" aria-label="看板名稱" value="日常，靈感與計畫">
+      <div id="viewTabs" class="page-tabs" role="tablist" aria-label="卡片檢視">
+        <button class="page-tab active" role="tab" data-view="all" aria-selected="true" aria-controls="board"><svg><use href="#i-board"/></svg>全部卡片<span id="tabAllCount" class="tab-count">0</span></button>
+        <button class="page-tab" role="tab" data-view="starred" aria-selected="false" aria-controls="board" tabindex="-1"><svg><use href="#i-star"/></svg>已收藏<span id="starCount" class="tab-count">0</span></button>
+        <button class="page-tab" role="tab" data-view="week" aria-selected="false" aria-controls="board" tabindex="-1"><svg><use href="#i-calendar"/></svg>七天內到期<span id="weekCount" class="tab-count">0</span></button>
+      </div>
+      <div class="heading-tools"><span id="saveStatus" class="pill" role="status" aria-live="polite"><i class="status-dot"></i><span id="saveText">已儲存在本機</span></span><button id="newCard" class="btn btn-primary"><svg><use href="#i-plus"/></svg>新增卡片</button></div>
+    </div>
+    <div class="board-info"><span id="boardSummary"></span><div class="toolbar-right"><span class="filter-label"><svg><use href="#i-filter"/></svg>標籤篩選</span><div id="colorFilters" class="color-filter" role="group" aria-label="依標籤篩選"></div><button id="clearFilters" class="clear-filter" hidden>清除篩選</button></div></div>
+  </section>
+  <section id="board" class="board" aria-label="工作看板"></section>
+  </div>

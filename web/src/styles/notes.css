@@ -1,0 +1,37 @@
+/* Notes are a full workspace beside the card board, not a floating panel. */
+.workspace-page{display:flex;flex:1;min-height:0;flex-direction:column}
+.notes-viewport{overflow:auto;position:relative;flex:1;min-height:0;margin:0 36px 24px;border:1px solid #e1e4ed;border-radius:12px;overscroll-behavior:contain;background:#eff1f6 radial-gradient(#d5d6e3 1px,transparent 1px);background-size:18px 18px;scrollbar-gutter:stable}
+.notes-canvas{position:relative;min-width:100%;min-height:100%;isolation:isolate}
+.notes-empty{position:absolute;inset:70px 24px auto;text-align:center;color:#756c86;line-height:1.9;font-size:var(--text-base);pointer-events:none}
+.sticky-note{position:absolute;min-width:220px;min-height:180px;border:1px solid var(--note-border);border-radius:7px 7px 15px 7px;background:var(--note-paper);color:var(--note-ink);box-shadow:1px 5px 12px #30274412;display:flex;flex-direction:column;overflow:hidden}
+.sticky-note.pinned{box-shadow:0 0 0 2px var(--note-border),1px 5px 12px #30274412}
+.sticky-note.note-active,.sticky-note:focus-within{z-index:300!important}
+.sticky-note.note-dragging{z-index:400!important;box-shadow:0 14px 26px #30274428;will-change:transform;user-select:none}
+.note-top{display:flex;align-items:center;gap:3px;padding:6px;border-bottom:1px solid var(--note-border);flex-shrink:0}
+.note-handle{display:flex;align-items:center;gap:5px;min-width:0;flex:1;font-size:var(--text-base);text-align:left;cursor:grab;touch-action:none;user-select:none;padding:6px 2px;border-radius:4px}
+.note-handle span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.note-pin-label{font-size:var(--text-sm);border-radius:4px;background:#ffffff85;padding:2px 4px;flex-shrink:0}
+.note-top .icon-btn{width:27px;height:28px;color:var(--note-ink)}
+.note-top .icon-btn[aria-pressed="true"]{background:#ffffff90}
+.note-content{display:block;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;min-height:0;flex:1;width:100%;background:transparent;color:inherit;font-size:var(--text-base);line-height:1.75;padding:11px 14px;outline-offset:-3px;overflow:auto;cursor:text}
+.note-content:empty:before{content:'點此編輯便簽內容';opacity:.65}
+.note-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 34px 7px 12px;font-size:var(--text-sm);border-top:1px solid var(--note-border);flex-shrink:0}
+.note-resize{position:absolute;bottom:1px;right:1px;width:28px;height:28px;display:grid;place-items:center;color:inherit;cursor:nwse-resize;touch-action:none;border-radius:5px}
+.note-resize svg{width:16px;height:16px}
+.note-handle:focus-visible,.note-resize:focus-visible{outline-offset:-2px}
+.note-editor{width:560px;max-width:100%;max-height:calc(100dvh - 44px);overflow:auto}
+.note-editor label{display:block;font-size:var(--text-base);line-height:1.6;color:#625c72;margin:18px 0 8px}
+.note-editor-text{width:100%;min-height:220px;max-height:45dvh;resize:vertical;border:1px solid #ddd8e9;border-radius:9px;background:#faf9fc;padding:13px;font-size:var(--text-base);line-height:1.8;color:#373140}
+.note-editor-options{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:var(--text-base);color:#776c87;margin-top:14px}
+.note-editor-options label{margin:0;display:flex;align-items:center;gap:10px}
+.note-editor-options select{border:1px solid #ded9e9;background:#fff;border-radius:6px;padding:7px;color:#51465f}
+.note-editor-error{color:#a74444;font-size:var(--text-base);line-height:1.6;margin-top:12px}
+@media(max-width:1150px){
+  .notes-viewport{margin:0 25px 24px}
+}
+@media(max-width:760px){
+  .notes-viewport{margin:0 16px 16px}
+  .note-editor{padding:22px}
+  .note-editor-text{min-height:200px}
+  .note-editor-options{align-items:flex-start;flex-wrap:wrap}
+}
